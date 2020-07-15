@@ -13,7 +13,7 @@ struct ContentView: View {
         
         HStack {
             ForEach(0..<4) { index in
-              CardView(isFaceUp: true)
+              CardView(isFaceUp: false)
             }
         }.padding()
             .foregroundColor(Color.orange)
@@ -22,11 +22,9 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    
     var isFaceUp: Bool
     
     var body: some View {
-        
         ZStack {
             if isFaceUp {
                 RoundedRectangle(cornerRadius: 20).fill(Color.white)
@@ -39,7 +37,6 @@ struct CardView: View {
         }
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
