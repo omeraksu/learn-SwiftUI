@@ -9,6 +9,7 @@
 import SwiftUI
 
 class EmojiMemoryGame {
+    
     private var modal: MemoryGame<String> = EmojiMemoryGame.createMemoryGame() 
     
     
