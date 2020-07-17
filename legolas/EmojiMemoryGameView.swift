@@ -1,15 +1,15 @@
-//
+
 //  EmojiMemoryGameView.swift
 //  legolas
-//
+
 //  Created by Ömer Aksu on 15.07.2020.
 //  Copyright © 2020 omeraksu. All rights reserved.
-//
+
 
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    var viewModel: EmojiMemoryGame
+    @ObservedObject var viewModel: EmojiMemoryGame
     var body: some View {
         
         VStack(spacing: 40) {
@@ -19,7 +19,7 @@ struct EmojiMemoryGameView: View {
                 }
             }
         }.padding()
-            .foregroundColor(Color.white)
+            .foregroundColor(Color.blue)
             .font(.largeTitle)
     }
 }
@@ -31,10 +31,10 @@ struct CardView: View {
         ZStack {
             if card.isFaceUp {
                 RoundedRectangle(cornerRadius: 20).fill(Color.pink)
-                RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 6)
+                RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 6).fill(Color.orange)
                 Text(card.content)
             } else {
-                RoundedRectangle(cornerRadius: 20).fill()
+                RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 4)
             }
         }
     }

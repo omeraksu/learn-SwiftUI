@@ -1,16 +1,16 @@
-//
+
 //  EmojiMemoryGame.swift
 //  legolas
-//
+
 //  Created by Ömer Aksu on 16.07.2020.
 //  Copyright © 2020 omeraksu. All rights reserved.
-//
+
 
 import SwiftUI
 
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
     
-    private var modal: MemoryGame<String> = EmojiMemoryGame.createMemoryGame() 
+    @Published private var modal: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
     
     static func createMemoryGame() -> MemoryGame<String> {
