@@ -28,15 +28,28 @@ struct CardView: View {
     var card : MemoryGame<String>.Card
     
     var body: some View {
-        ZStack {
-            if card.isFaceUp {
-                RoundedRectangle(cornerRadius: 20).fill(Color.pink)
-                RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 6).fill(Color.orange)
-                Text(card.content)
-            } else {
-                RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 4)
-            }
+        GeometryReader { geometry in
+            self.body(for: geometry.size)
         }
+    }
+    func body(for size: CGSize) -> some View {
+        ZStack {
+           if self.card.isFaceUp {
+               RoundedRectangle(cornerRadius: cornerRadius).fill(Color.pink)
+               RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth).fill(Color.orange)
+               Text(self.card.content)
+           } else {
+               RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: 4)
+           }
+       }
+        .font(Font.system(size: fontSize(for: size)))
+    }
+    let cornerRadius: CGFloat = 10
+    let edgeLineWidth: CGFloat = 3
+    let fontScaleFactor: CGFloat = 0.75
+    
+    func fontSize(for size: CGSize) -> CGFloat {
+        min(size.width, size.height) * fontScaleFactor
     }
 }
 
